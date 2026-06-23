@@ -1,0 +1,104 @@
+/* Variables basadas en la paleta enviada */
+:root {
+    --powder-blush: #FFA69E;
+    --alice-blue: #edf6f9;
+    --pearl-agua: #83c5be;
+    --light-blue: #AED9E0;
+    --blue-slate: #5E6472;
+    --white: #ffffff;
+    --tangerine-dream: #e29578;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--alice-blue); /* Fondo suave */
+    color: var(--blue-slate);
+}
+
+/* Navbar */
+.custom-navbar {
+    background-color: var(--white);
+    border-bottom: 2px solid var(--pearl-agua);
+}
+
+.navbar-brand {
+    color: var(--pearl-agua);
+    font-size: 1.5rem;
+}
+
+/* Botones */
+.btn-custom-primary {
+    background-color: var(--powder-blush);
+    color: var(--white);
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-custom-primary:hover {
+    background-color: #f88e84;
+    color: var(--white);
+}
+
+.btn-outline-secondary {
+    background-color: var(--white);
+    color: var(--pearl-agua);
+    border-color: var(--pearl-agua);
+    
+}
+
+.btn-outline-secondary:hover{
+    background-color: var(--pearl-agua);
+    color: var(--white);
+    
+}
+
+.btn-custom-secondary {
+    background-color: var(--powder-blush);
+    color: var(--white);
+    border: none;
+    font-weight: 600;
+}
+
+.btn-custom-secondary:hover {
+    background-color: #f88e84;
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 60px 0;
+    background: linear-gradient(180deg, var(--white) 0%, var(--vanilla-cream) 100%);
+}
+
+/* Cards */
+.vet-card {
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+}
+
+.vet-card:hover {
+    transform: translateY(-10px);
+}
+
+.vet-logo-container img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.badge-open {
+    background-color: var(--pearl-agua);
+    color: var(--blue-slate);
+}
+
+.badge-closed {
+    background-color: #eee;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 576px) {
+    .btn-sm-custom {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+}
