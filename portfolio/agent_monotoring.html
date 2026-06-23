@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto: Sistema de Monitoreo Escalable</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="hero" style="min-height: 40vh;">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Sistema de Monitoreo y Observabilidad</h1>
+      <p class="role">DevOps | Bash | Docker | Ansible | Flask</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section light">
+    <div class="container">
+      <div class="project-content">
+
+        <img src="assets/desktop.png" alt="Dashboard de Monitoreo DevOps" class="project-img">
+
+        <h2>Introducción</h2>
+        <p>En este proyecto desarrollé una solución integral de monitoreo para servidores y máquinas virtuales. El sistema extrae métricas de salud en tiempo real de múltiples nodos y las centraliza en un dashboard interactivo, eliminando la necesidad de supervisión manual individual.</p>
+
+        <h2>El Problema</h2>
+        <p>Monitorear el estado de salud (CPU, RAM, Disco) de múltiples servidores de forma manual es ineficiente y propenso a errores. El objetivo fue crear una arquitectura que permitiera observar toda la infraestructura desde un solo punto, garantizando escalabilidad y portabilidad.</p>
+
+        <h2>Arquitectura del Proyecto</h2>
+        <p>La solución se divide en cuatro capas principales:</p>
+        <ul>
+          <li><strong>Agente de Extracción:</strong> Script en Bash que recolecta métricas y las envía vía JSON.</li>
+          <li><strong>Backend API:</strong> Desarrollado en Python con Flask para procesar y validar los datos.</li>
+          <li><strong>Persistencia:</strong> Base de datos PostgreSQL para el almacenamiento histórico.</li>
+          <li><strong>Frontend:</strong> Dashboard dinámico con Cards que muestran el estado de cada nodo.</li>
+          <li><strong>Tecnologías utilizadas:</strong> Python, Flask, PostgreSQL, Docker, Docker Compose, Ansible, Bash Scripting, Oracle Cloud.</li>
+        </ul>
+
+        <h2>Infraestructura en la Nube (Oracle Cloud)</h2>
+        <img src="assets/instancia_oracle.png" alt="instancia_oracle" class="project-img">
+
+        <p>A diferencia de un entorno local, este sistema fue desplegado sobre una instancia de <strong>Oracle Cloud Infrastructure (OCI)</strong>. Esto implicó la gestión de:</p>
+        <ul>
+          <li><strong>Virtual Cloud Network (VCN):</strong> Configuración de reglas de entrada (Ingress Rules) para permitir el tráfico de las métricas de forma segura.</li>
+          <li><strong>Seguridad (Hardening):</strong> Implementación de acceso vía llaves SSH de 4096 bits y cambio de puertos estándar para mitigar intentos de intrusión.</li>
+          <li><strong>Disponibilidad:</strong> El servidor central opera 24/7 en la nube, permitiendo que nodos de cualquier parte del mundo reporten su estado.</li>
+        </ul>
+
+        <h2>Automatización con Ansible (IaC)</h2>
+        <p>Para el despliegue de los agentes en los nodos (VMs), utilicé <strong>Ansible</strong>. Esto permite configurar el entorno, transferir el script y establecerlo como un servicio persistente en <strong>Systemd</strong> con un solo comando.</p>
+        
+        <img src="assets/ansible_running.png" alt="ansible_running" class="project-img">
+
+        <h2>Contenerización con Docker Compose</h2>
+        <p>Para facilitar el despliegue del servidor central en Oracle Cloud, utilicé Docker para encapsular la API y la base de datos, garantizando que el entorno sea idéntico en desarrollo y producción.</p>
+
+        <img src="assets/docker_yml.png" alt="docker_yml" class="project-img">
+
+        <h2>El Agente de Monitoreo (Bash)</h2>
+        <p>El script principal utiliza herramientas de sistema para calcular el uso de recursos y enviar un POST request a la API centralizada cada 10 segundos.</p>
+        
+ <img src="assets/systemctl.png" alt="systemctl" class="project-img">
+
+        <h2>Conclusión y Próximos Pasos</h2>
+        <p>Este proyecto demuestra la potencia de combinar herramientas de automatización como Ansible con la portabilidad de Docker. Se logró reducir el tiempo de configuración de nuevos nodos de minutos a segundos.</p>
+        <p><strong>Siguiente paso:</strong> Implementar un pipeline de CI/CD para automatizar las actualizaciones del dashboard .</p>
+        <br>
+        <br>
+
+        <div class="hero-buttons mt-4">
+          <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

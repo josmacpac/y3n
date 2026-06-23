@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - José Macías</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.5;
+      background: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1, h2, h3, h4 {
+      color: #00ffb3;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #00ffb3;
+      padding-bottom: 3px;
+      margin-top: 15px;
+    }
+
+    .cv-section {
+      margin-bottom: 15px;
+    }
+
+    .cv-section ul {
+      list-style: disc;
+      margin-left: 20px;
+      font-size: 0.9rem;
+    }
+
+    .cv-section p {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .contact-info p {
+      margin: 2px 0;
+      font-size: 0.9rem;
+    }
+
+    img.profile-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #00ffb3;
+      margin-bottom: 10px;
+    }
+
+    /* Ajustes para impresión PDF */
+    @media print {
+      body { background: #0a0a0a; color: #fff; margin: 0; padding: 0; }
+      .cv-section { page-break-inside: avoid; }
+      img.profile-photo { max-width: 100%; height: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Foto y contacto -->
+  <section class="cv-section" id="perfil">
+    <img src="assets/img/profile.jpg" alt="Fotografía de José Macías" class="profile-photo">
+    <h1>José Macías</h1>
+    <p>Desarrollador Backend | SysAdmin</p>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> josmacpac@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> México</p>
+    </div>
+  </section>
+
+  <!-- Perfil -->
+  <section class="cv-section" id="perfil-profesional">
+    <h2>Perfil Profesional</h2>
+    <p>Ingeniero en Sistemas Computacionales con experiencia en desarrollo backend con Python y Flask, administración de servidores Linux, manejo de contenedores Docker y gestión de bases de datos MySQL. Experiencia supervisando equipos, gestión de turnos y control de inventarios. Interesado en la seguridad informática y administración de sistemas.</p>
+  </section>
+
+  <!-- Experiencia -->
+  <section class="cv-section" id="experiencia">
+    <h2>Experiencia Laboral</h2>
+    <ul>
+      <li><strong>Gerente - McDonald's:</strong> Gestión de turnos, supervisión de personal, manejo de inventarios.</li>
+      <li><strong>Supervisor de Equipos - Supermercados:</strong> Coordinación de equipos, resolución de conflictos, planificación de horarios.</li>
+      <li><strong>Desarrollador Backend - Proyectos Personales:</strong> Desarrollo de aplicaciones con Python, Flask, MySQL y Docker.</li>
+    </ul>
+  </section>
+
+  <!-- Formación -->
+  <section class="cv-section" id="formacion">
+    <h2>Formación Académica</h2>
+    <ul>
+      <li><strong>Ingeniería en Sistemas Computacionales</strong> - Universidad [Nombre]</li>
+      <li><strong>Cursos:</strong> Backend Python, Administración de Servidores, Ciberseguridad básica</li>
+    </ul>
+  </section>
+
+  <!-- Proyectos -->
+  <section class="cv-section" id="proyectos">
+    <h2>Proyectos Destacados</h2>
+    
+    <div class="project-content">
+      <h3>Servidor NGINX con Flask y Docker</h3>
+      <p>Despliegue de aplicación Flask detrás de NGINX usando Docker en Raspberry Pi Zero 2 W. Base de datos SQLite, monitorización con Portainer y túnel seguro Cloudflare.</p>
+    </div>
+
+    <div class="project-content">
+      <h3>Cloudflare Tunnel</h3>
+      <p>Exposición segura de servicios Docker en Raspberry Pi a través de túnel Cloudflare. Gestión de subdominios y proxy inverso NGINX para entornos de pruebas de seguridad.</p>
+    </div>
+
+    <div class="project-content">
+      <h3>Employee & Schedule Manager</h3>
+      <p>Aplicación web para gestión de empleados y generación de horarios semanales. Backend con Python/Flask, frontend HTML/Bootstrap, base de datos MySQL, procesamiento de datos con Pandas.</p>
+    </div>
+
+  </section>
+
+</body>
+</html>

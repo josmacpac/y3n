@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto: Servidor NGINX/Docker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Hero del proyecto -->
+  <header class="hero" style="min-height: 40vh;">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Servidor NGINX en Raspberry Pi</h1>
+      <p class="role">Proyecto Backend con Docker y Flask</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido del proyecto -->
+  <section class="section light">
+    <div class="container">
+      <div class="project-content">
+
+        <img src="assets/raspberry.jpg" alt="Raspberry Pi Nginx Docker" class="project-img">
+
+        <h2>Introducción</h2>
+        <p>En esta publicación te muestro cómo desplegar una aplicación Flask detrás de un servidor NGINX en una Raspberry Pi Zero 2 W, utilizando Docker y Portainer para la gestión de contenedores.</p>
+
+        <h2>¿Qué es la Raspberry Pi Zero 2 W?</h2>
+        <p>Es una microcomputadora compacta y económica con arquitectura ARM, ideal para proyectos de bajo consumo como servidores caseros, IoT, automatización y aprendizaje.</p>
+
+        <h2>Objetivo del proyecto</h2>
+        <p>El proyecto consiste en desplegar una aplicación con HTML, CSS y JavaScript en el frontend, y Python con Flask en el backend. La base de datos utilizada es SQLite.</p>
+        <p>Se utiliza un servidor NGINX ejecutado dentro de un contenedor Docker, monitoreado mediante Portainer. Para exponer la aplicación a Internet, se configura un túnel de Cloudflare, evitando exponer directamente la red local.</p>
+        <p><strong>Tecnologías utilizadas:</strong> Python, Docker, Docker Compose, Flask, SQLite, Bootstrap, JavaScript.</p>
+
+        <h2>Preparación del entorno</h2>
+        <p>Antes de comenzar, actualicé el sistema operativo de mi Raspberry Pi y eliminé cualquier versión anterior de Docker para evitar conflictos.</p>
+
+        <h2>Configuración inicial (SSH, red, actualizaciones)</h2>
+        <p>Me conecté por SSH a la Raspberry Pi, configuré la red local y apliqué todas las actualizaciones necesarias del sistema operativo.</p>
+
+        <h2>Instalación de Docker y Portainer</h2>
+        <p>Instalé Docker y Portainer siguiendo la guía oficial. En mi caso, usé los scripts automatizados para agilizar el proceso.</p>
+
+        <h2>Montaje del stack Flask + SQLite</h2>
+        <p>Para tener una base de datos persistente, primero creé un volumen en Docker:</p>
+        <pre class="code-block">sudo docker volume create flask_data</pre>
+
+        <p>Verifiqué que el volumen fue creado:</p>
+        <pre class="code-block">sudo docker volume ls</pre>
+
+        <h3>Script de inicialización de la base de datos y Gunicorn</h3>
+        <pre class="code-block"><code>#!/bin/sh
+
+echo "🛠 Verificando base de datos en volumen /data..."
+
+mkdir -p /data
+
+if [ ! -f /data/db_employee.db ]; then
+    echo "📁 No se encontró /data/db_employee.db, copiando desde /app/data/"
+    cp /app/data/db_employee.db /data/db_employee.db
+else
+    echo "✅ Base de datos ya existe en /data"
+fi
+
+echo "🚀 Iniciando Gunicorn..."
+exec gunicorn -c /app/gunicorn.conf.py app:app
+</code></pre>
+
+        <h3>Creación de red Docker</h3>
+        <pre class="code-block">sudo docker network create flask_net</pre>
+
+        <h3>Dockerfile para Flask</h3>
+        <pre class="code-block"><code>FROM python:3.11-alpine
+
+RUN apk add --no-cache gcc musl-dev libffi-dev
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN chmod +x /app/entrypoint.sh && mkdir -p /data
+
+EXPOSE 8000
+
+ENTRYPOINT ["/app/entrypoint.sh"]</code></pre>
+
+        <p>Construí la imagen y ejecuté el contenedor:</p>
+        <pre class="code-block"><code>sudo docker build -t app-flask .
+docker run -d \
+  --name flask_app \
+  --network flask_net \
+  -v flask_data:/data \
+  app-flask
+</code></pre>
+
+        <h2>Configuración del servidor NGINX</h2>
+        <p>El contenedor NGINX actuó como proxy inverso apuntando a la app Flask:</p>
+        <pre class="code-block"><code>server {
+    listen 80;
+    server_name localhost;
+
+    location / {
+        proxy_pass http://flask_app:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}</code></pre>
+
+        <h3>Dockerfile para NGINX</h3>
+        <pre class="code-block"><code>FROM nginx:alpine
+COPY default.conf /etc/nginx/conf.d/default.conf</code></pre>
+
+        <p>Construcción y ejecución del contenedor:</p>
+        <pre class="code-block"><code>docker build -t nginx-proxy ./nginx
+
+sudo docker run -d \
+  --name nginx_server \
+  --network flask_net \
+  -v /home/josmacpac/nginx_server/default.conf:/etc/nginx/conf.d/default.conf \
+  -p 80:80 \
+  nginx</code></pre>
+
+        <h2>Conclusión</h2>
+        <p>Este proyecto demuestra que es posible montar un entorno completo utilizando herramientas modernas como Docker, NGINX y Flask en hardware de bajo costo. Gracias al uso de contenedores y túneles seguros, se logra un entorno robusto y accesible desde cualquier lugar sin comprometer la seguridad.</p>
+
+        <div class="hero-buttons mt-4">
+          <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

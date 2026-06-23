@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto: Cloudflare Tunnel</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Hero del proyecto -->
+  <header class="hero" style="min-height: 40vh;">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Cloudflare Tunnel en Raspberry Pi</h1>
+      <p class="role">Exposición segura de servicios Docker</p>
+      <div class="hero-buttons">
+        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido del proyecto -->
+  <section class="section light">
+    <div class="container">
+      <div class="project-content">
+
+        <img src="assets/Cloudflare-logo.png" alt="Cloudflare Logo" class="project-img">
+
+
+        <h2>Introducción</h2>
+        <p>
+          Exponer los sitios web alojados en mi servidor local de manera segura usando un túnel de Cloudflare, evitando exponer toda mi red. Los servicios corren en contenedores Docker sobre una Raspberry Pi Zero 2 W. Este proyecto sirve como laboratorio de prácticas de administración de servidores y seguridad.
+        </p>
+
+        <h2>Requisitos previos</h2>
+        <ul>
+          <li>Raspberry Pi configurada (Raspbian sin entorno gráfico).</li>
+          <li>Docker instalado.</li>
+          <li>Dominio registrado.</li>
+          <li>Cuenta de Cloudflare con dominio añadido.</li>
+          <li>Acceso a terminal (SSH o monitor/teclado).</li>
+          <li>Servicios corriendo en Docker.</li>
+        </ul>
+
+        <h2>Contenedores activos</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre del contenedor</th>
+              <th>Imagen</th>
+              <th>Puerto interno</th>
+              <th>Puerto host</th>
+              <th>Propósito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>nginx_server</td>
+              <td>nginx</td>
+              <td>80</td>
+              <td>80</td>
+              <td>Reverse proxy</td>
+            </tr>
+            <tr>
+              <td>josmacpac-site</td>
+              <td>nginx</td>
+              <td>80</td>
+              <td>8080</td>
+              <td>Sitio estático</td>
+            </tr>
+            <tr>
+              <td>flask_app</td>
+              <td>app-flask</td>
+              <td>8000</td>
+              <td>—</td>
+              <td>Aplicación Flask</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Unir contenedores a la misma red</h2>
+        <pre class="code-block"><code>
+sudo docker network connect NOMBRE_RED NOMBRE_CONTENEDOR
+docker network ls
+docker network inspect NOMBRE_RED
+        </code></pre>
+
+        <p>Verificamos si todos los contenedores están en la misma red:</p>
+        <pre class="code-block">docker network inspect NOMBRE_RED</pre>
+
+        <h2>Configurar NGINX como reverse proxy</h2>
+        <p>Editamos el archivo de configuración de NGINX montado en la Raspberry y reiniciamos el contenedor.</p>
+        <p>La idea es que el túnel acceda a un único puerto, y NGINX actúe como reverse proxy hacia cada servicio.</p>
+        <pre class="code-block"><code>
+server {
+    listen 80;
+    server_name app.dominio.com;
+    location / {
+        proxy_pass http://flask_app:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+server {
+    listen 80;
+    server_name web.dominio.com;
+    location / {
+        proxy_pass http://josmacpac-site:80;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+        </code></pre>
+
+        <h2>Instalar cloudflared en Raspberry Pi</h2>
+        <p>Cloudflared permite crear un túnel seguro entre la Raspberry Pi y Cloudflare, sin abrir puertos en el firewall.</p>
+        <pre class="code-block"><code>
+sudo apt update
+sudo apt upgrade
+curl -L https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-archive-keyring.gpg >/dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-archive-keyring.gpg] https://pkg.cloudflare.com/cloudflared $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflared.list
+
+sudo apt update
+sudo apt install cloudflared
+        </code></pre>
+
+        <h2>Autenticación y creación del túnel</h2>
+        <pre class="code-block"><code>
+cloudflared tunnel login
+cloudflared tunnel create NOMBRE_TUNEL
+cloudflared tunnel route dns NOMBRE_TUNEL subdominio.dominio.com
+        </code></pre>
+        <p>Después de configurar el subdominio, se puede acceder desde el navegador: <code>http://subdominio.dominio.com</code></p>
+
+        <h2>Conclusión</h2>
+        <p>
+          Este método permite exponer solo los servicios necesarios desde la red local sin abrir puertos directamente. Es ideal para prácticas de administración de servidores y despliegue seguro con Raspberry Pi.
+        </p>
+
+        <div class="hero-buttons mt-4">
+          <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
