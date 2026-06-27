@@ -1,294 +1,310 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>José Macías - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+  </style>
 </head>
-<body>
-    <nav class="side-nav">
-  <ul>
-    <li><a href="#hero"><i class="fas fa-home"></i></a></li>
-    <li><a href="#about"><i class="fas fa-user"></i></a></li>
-    <li><a href="#formacion"><i class="fas fa-graduation-cap"></i></a></li>
-    <li><a href="#experiencia"><i class="fas fa-briefcase"></i></a></li>
-    <li><a href="#proyectos"><i class="fas fa-project-diagram"></i></a></li>
-    <li><a href="#contacto"><i class="fas fa-envelope"></i></a></li>
-  </ul>
+<body class="bg-slate-900 text-slate-100 antialiased">
+
+<!-- 🧭 NAV SUPERIOR FIJA INTEGRADA CON Y3N.STORE -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 shadow-lg px-6 py-4">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    
+    <!-- 🌟 LOGO CON DEGRADADO IDÉNTICO A LA LANDING -->
+    <a href="#hero" class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+      Y3N.STORE
+    </a>
+    
+    <!-- Enlaces de Navegación -->
+    <ul class="flex gap-6 md:gap-8 text-sm font-medium">
+      <li><a href="#hero" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1"><i class="fas fa-home md:hidden"></i><span class="hidden md:inline">Inicio</span></a></li>
+      <li><a href="#about" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1"><i class="fas fa-user md:hidden"></i><span class="hidden md:inline">Sobre mí</span></a></li>
+      <li><a href="#formacion" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1"><i class="fas fa-graduation-cap md:hidden"></i><span class="hidden md:inline">Formación</span></a></li>
+      <li><a href="#proyectos" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1"><i class="fas fa-project-diagram md:hidden"></i><span class="hidden md:inline">Proyectos</span></a></li>
+      <li><a href="#experiencia" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1"><i class="fas fa-briefcase md:hidden"></i><span class="hidden md:inline">Experiencia</span></a></li>
+      <li><a href="#contacto" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1"><i class="fas fa-envelope md:hidden"></i><span class="hidden md:inline">Contacto</span></a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- Botón hamburguesa para móvil -->
-<div class="mobile-nav-toggle">
-  <i class="fas fa-bars"></i>
-</div>
+  <header id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-4">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08)_0,transparent_100%)]"></div>
+    <div class="relative text-center z-10 max-w-3xl">
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-wider text-white mb-2">JOSÉ MACÍAS</h1>
+      <p class="text-xl md:text-2xl text-blue-400 font-medium tracking-wide mb-6">Desarrollo Web | DevOps</p>
+      
+      <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-400 mb-8">
+        <span class="flex items-center gap-2"><i class="fas fa-envelope text-blue-400"></i> josmacpac@gmail.com</span>
+        <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-blue-400"></i> México</span>
+      </div>
 
-  <!-- Hero -->
- <header class="hero" id="hero">
-  <div class="overlay"></div>
-  <div class="hero-content">
-    <h1>JOSÉ MACÍAS</h1>
-    <p class="role">Desarrollador Backend | SysAdmin</p>
-    <div class="contact-info">
-      <p><i class="fas fa-envelope"></i> josmacpac@gmail.com</p>
-      <p><i class="fas fa-map-marker-alt"></i> México</p>
-    </div>
-    <div class="hero-buttons">
-      <a href="#formacion" class="btn"><i class="fas fa-graduation-cap"></i> Formación</a>
-      <a href="#proyectos" class="btn"><i class="fas fa-laptop-code"></i> Proyectos</a>
-      <a href="#experiencia" class="btn"><i class="fas fa-briefcase"></i> Experiencia</a>
-      <a href="#contacto" class="btn"><i class="fas fa-envelope"></i> Contacto</a>
-    </div>
-  </div>
-</header>
-
-<section id="about" class="section dark">
-  <div class="container">
-    <div class="about-text">
-      <h2 class="section-title"><i class="fas fa-user"></i> Sobre mí</h2>
-      <p class="lead mb-4">
-        Soy egresado de Ingeniería en Sistemas con un fuerte enfoque en el desarrollo backend. Me especializo en tecnologías como Python con el framework Flask y MySQL. Además, cuento con experiencia en JavaScript para la integración con el front-end.
-      </p>
-      <p class="lead mb-4">
-        Asimismo, he desarrollado habilidades de gestión y liderazgo en roles como la supervisión de equipos de trabajo. Mi experiencia incluye la administración de turnos, la resolución de conflictos, la elaboración de horarios de personal y el manejo de inventarios.
-      </p>
-      <p class="lead mb-4">
-        Este portafolio refleja mi pasión por la tecnología, mi dedicación a la resolución de problemas y mi compromiso con la excelencia en cada proyecto.
-      </p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/jose-macias-9b6413b0" target="_blank" class="social-icon">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/josmacpac" target="_blank" class="social-icon">
-          <i class="fab fa-github"></i> GitHub
-        </a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#formacion" class="px-5 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium transition-all shadow-md"><i class="fas fa-graduation-cap mr-2"></i>Formación</a>
+        <a href="#proyectos" class="px-5 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium transition-all shadow-md"><i class="fas fa-laptop-code mr-2"></i>Proyectos</a>
+        <a href="#experiencia" class="px-5 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium transition-all shadow-md"><i class="fas fa-briefcase mr-2"></i>Experiencia</a>
+        <a href="#contacto" class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all shadow-lg shadow-blue-900/30"><i class="fas fa-envelope mr-2"></i>Contacto</a>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-
-
-
-
- <section id="formacion" class="section light">
-  <div class="container grid-2cols">
-    <!-- Formación -->
-   <div>
-  <h2><i class="fas fa-graduation-cap"></i> Formación</h2>
-  <ul class="fa-ul">
-    <li>
-      <span class="fa-li"><i class="fas fa-check"></i></span> 
-      <strong>Universidad Virtual del Estado de Guanajuato</strong> – Ingeniería en Sistemas Computacionales  
-      <br>
-      <em>Especialidad: Desarrollo de Software – Backend Dev</em>  
-      <br>
-      <span class="fecha">Nov 2022 – Dic 2025</span>
-    </li>
-  </ul>
-
-  <h3><i class="fas fa-certificate"></i> Certificaciones y Cursos </h3>
-  <ul class="fa-ul">
-    <li><span class="fa-li"><i class="fas fa-check"></i></span> Linux Essentials LP1 Certified</li>
-    <li><span class="fa-li"><i class="fas fa-check"></i></span> Microsoft Azure Fundamentals AZ-900</li>
-    <li><span class="fa-li"><i class="fas fa-check"></i></span> Ruta SOC Analyst – Hack The Box</li>
-  </ul>
-</div>
-
-
-    <!-- Skills -->
-    <div>
-      <h2><i class="fas fa-code"></i> Skills & Tecnologías</h2>
-      <div class="subheading mb-3">Lenguajes y Herramientas</div>
-      <ul class="list-inline dev-icons">
-        <li class="list-inline-item"><i class="fab fa-python" title="Python"></i></li>
-        <li class="list-inline-item"><i class="fab fa-js-square" title="JavaScript"></i></li>
-        <li class="list-inline-item"><i class="fab fa-css3-alt" title="CSS3"></i></li>
-        <li class="list-inline-item"><i class="fab fa-html5" title="HTML5"></i></li>
-        <li class="list-inline-item"><i class="fab fa-linux" title="Linux"></i></li>
-        <li class="list-inline-item"><i class="fab fa-docker" title="Docker"></i></li>
-        <li class="list-inline-item"><i class="fab fa-node-js" title="Node.js"></i></li>
-        <li class="list-inline-item"><i class="fab fa-github" title="GitHub"></i></li>
-      </ul>
-
-      <div class="subheading mb-3">Habilidades técnicas</div>
-      <ul class="fa-ul mb-0">
-        <li><span class="fa-li"><i class="fas fa-check"></i></span> Desarrollo Backend: Python + Flask</li>
-        <li><span class="fa-li"><i class="fas fa-check"></i></span> Bases de datos: MySQL, SQLite</li>
-        <li><span class="fa-li"><i class="fas fa-check"></i></span> Administración de sistemas Linux</li>
-        <li><span class="fa-li"><i class="fas fa-check"></i></span> Seguridad: análisis de vulnerabilidades y monitoreo</li>
-        <li><span class="fa-li"><i class="fas fa-check"></i></span> Gestión de proyectos y administración de equipos</li>
-      </ul>
+  <section id="about" class="py-24 bg-slate-900/50 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3"><i class="fas fa-user text-blue-500"></i> Sobre mí</h2>
+      <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
+        <p>Soy egresado de Ingeniería en Sistemas con un fuerte enfoque en el desarrollo backend. Me especializo en tecnologías como Python con el framework Flask y MySQL. Además, cuento con experiencia en JavaScript para la integración con el front-end.</p>
+        <p>Asimismo, he desarrollado habilidades de gestión y liderazgo en roles como la supervisión de equipos de trabajo. Mi experiencia incluye la administración de turnos, la resolución de conflictos, la elaboración de horarios de personal y el manejo de inventarios.</p>
+        <p>Este portafolio refleja mi pasión por la tecnología, mi dedicación a la resolución de problemas y mi compromiso con la excelencia en cada proyecto.</p>
+      </div>
+      <div class="mt-8 flex gap-4">
+        <a href="https://www.linkedin.com/in/jose-macias-9b6413b0" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-md text-sm font-semibold flex items-center gap-2 border border-slate-700 transition-colors"><i class="fab fa-linkedin text-blue-400"></i> LinkedIn</a>
+        <a href="https://github.com/josmacpac" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-md text-sm font-semibold flex items-center gap-2 border border-slate-700 transition-colors"><i class="fab fa-github"></i> GitHub</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section id="formacion" class="py-24 bg-slate-950">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3"><i class="fas fa-graduation-cap text-blue-500"></i> Formación</h2>
+        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-md mb-8">
+          <h4 class="text-lg font-bold text-white">Universidad Virtual del Estado de Guanajuato</h4>
+          <p class="text-blue-400 font-medium">Ingeniería en Sistemas Computacionales</p>
+          <p class="text-sm text-slate-400 italic">Especialidad: Desarrollo de Software – Backend Dev</p>
+          <span class="inline-block mt-3 bg-slate-800 text-xs px-3 py-1 rounded text-slate-300 font-medium">Nov 2022 – Dic 2025</span>
+        </div>
 
-
-  <!-- Proyectos -->
-<section id="proyectos" class="section dark">
-  <div class="container">
-    <h2><i class="fas fa-laptop-code"></i> Proyectos</h2>
-    <div class="projects-grid">
-
-      <div class="card">
-        <img src="assets/ansible.png" alt="Agent_monitoring" class="card-img">
-        <h3>Sistema de Monitoreo - Docker/Ansible</h3>
-        <p>Sistema de monitoreo de VM y servidores Linux. Mediante Script en Bash, Docker y Ansible para automatizacion.</p>
-        <a href="agent_monotoring.html" class="btn-project">Ver proyecto</a>
-      </div>
-
-      <div class="card">
-        <img src="assets/corteapp.png" alt="Corte Bike Shop" class="card-img">
-        <h3>Aplicación Gestión Clientes y Reservaciones</h3>
-        <p>Aplicación web para registrar clientes y agendar citas de taller. Backend en Python (Flask) con base de datos MySQL/SQLite, login seguro y gestión de reservas para optimizar la eficiencia del taller y mejorar la experiencia del cliente.</p>
-        <a href="cortebike.html" class="btn-project">Ver proyecto</a>
-      </div>
-
-      <div class="card">
-        <img src="assets/raspberry.jpg" alt="Docker Nginx" class="card-img">
-        <h3>Desplegando Servidor Nginx en Docker</h3>
-        <p>Despliegue de una aplicación Flask detrás de un servidor NGINX en Raspberry Pi Zero 2 W, utilizando Docker y Portainer para la gestión de contenedores.</p>
-        <a href="raspberry.html" class="btn-project">Ver proyecto</a>
-      </div>
-
-      <div class="card">
-        <img src="assets/3.jpg" alt="Túnel Cloudflare" class="card-img">
-        <h3>Configurando Túnel Cloudflare</h3>
-        <p>Exposición selectiva de servicios web alojados en Docker mediante un túnel seguro en Cloudflare, creando un laboratorio de prácticas de administración de servidores y seguridad en Raspberry Pi Zero 2 W.</p>
-        <a href="cloudflare.html" class="btn-project">Ver proyecto</a>
-      </div>
-
-      <div class="card">
-        <img src="assets/22.png" alt="Employee & Schedule Manager" class="card-img">
-        <h3>Employee & Schedule Manager</h3>
-        <p>Aplicación web para la gestión de empleados y la generación de horarios semanales, con funciones CRUD y administración de datos.</p>
-        <a href="schedule.html" class="btn-project">Ver proyecto</a>
-      </div>
-
-      <div class="card">
-        <img src="assets/5.png" alt="Generación de Certificados" class="card-img">
-        <h3>Generación Automática de Certificados</h3>
-        <p>Aplicación en Python que automatiza la creación y envío por correo de certificados en formato PDF, extrayendo datos desde un archivo Excel.</p>
-        <a href="#" class="btn-project">Ver proyecto</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-  <!-- Experiencias -->
-<section id="experiencia" class="section light">
-  <div class="container">
-    <h2><i class="fas fa-briefcase"></i> Experiencia</h2>
-    <div class="timeline">
-      <div class="experience">
-        <h3>
-          Desarrollador (contrato de prácticas) - Corte Bike Shop
-          <span class="fecha">2025 - Actualidad</span>
-        </h3>
-        <ul class="fa-ul">
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Desarrollo de un sistema de reservación de citas para servicios de taller</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Implementación de backend en Python (Flask) con base de datos en MySQL</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Diseño de rutas seguras para registro, login y gestión de usuarios, aplicando buenas prácticas de ciberseguridad.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Pruebas y despliegue del sistema en entornos Linux, aplicando conocimientos de administración de servidores.</li>
+        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2"><i class="fas fa-certificate text-blue-500"></i> Certificaciones y Cursos</h3>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i> Linux Essentials LP1 Certified</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i> Microsoft Azure Fundamentals AZ-900</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-500 mt-1"></i> Ruta SOC Analyst – Hack The Box</li>
         </ul>
       </div>
-      <div class="experience">
-        <h3>
-          Jefe Departamental - Alsuper
-          <span class="fecha">2019 - Actualidad</span>
-        </h3>
-        <ul class="fa-ul">
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Gestión y desarrollo personal para mejorar el desempeño y la productividad.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Supervisión de múltiples puntos de venta, asegurando el cumplimiento de estándares y objetivos.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Monitoreo y análisis de métricas de desempeño para la toma de decisiones estratégicas.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Administración de pedidos e inventarios para optimizar costos y prevenir desabastos.</li>
-        </ul>
-      </div>
-      <div class="experience">
-        <h3>
-          Gerente - McDonald's
-          <span class="fecha">2007 - 2018</span>
-        </h3>
-        <ul class="fa-ul">
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Supervisé restaurantes y puntos de venta externos, asegurando la eficiencia operativa.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Capacitación y desarrollo de personal para fortalecer el trabajo en equipo.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Gestión de inventarios, garantizando disponibilidad y reduciendo desperdicios.</li>
-          <li><span class="fa-li"><i class="fas fa-check"></i></span> Control de indicadores clave de desempeño (KPIs) para impulsar la mejora continua.</li>
+
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3"><i class="fas fa-code text-blue-500"></i> Skills & Tecnologías</h2>
+        <h3 class="text-sm uppercase tracking-wider text-slate-400 mb-4">Lenguajes y Herramientas</h3>
+        
+        <div class="flex flex-wrap gap-6 text-4xl text-slate-400 mb-8">
+          <i class="fab fa-python hover:text-yellow-400 transition-colors" title="Python"></i>
+          <i class="fab fa-js-square hover:text-yellow-500 transition-colors" title="JavaScript"></i>
+          <i class="fab fa-linux hover:text-white transition-colors" title="Linux"></i>
+          <i class="fab fa-docker hover:text-blue-400 transition-colors" title="Docker"></i>
+          <i class="fab fa-html5 hover:text-orange-500 transition-colors" title="HTML5"></i>
+          <i class="fab fa-css3-alt hover:text-blue-500 transition-colors" title="CSS3"></i>
+          <i class="fab fa-node-js hover:text-emerald-500 transition-colors" title="Node.js"></i>
+          <i class="fab fa-github hover:text-white transition-colors" title="GitHub"></i>
+        </div>
+
+        <h3 class="text-sm uppercase tracking-wider text-slate-400 mb-4">Habilidades Técnicas</h3>
+        <ul class="space-y-3 text-slate-300">
+          <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Desarrollo Backend: Python + Flask</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Bases de datos: MySQL, SQLite</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Administración de sistemas Linux</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Seguridad: análisis de vulnerabilidades y monitoreo</li>
+          <li class="flex items-start gap-2"><i class="fas fa-check-circle text-blue-500 mt-1"></i> Gestión de proyectos y administración de equipos</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section id="proyectos" class="py-24 bg-slate-900/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3"><i class="fas fa-laptop-code text-blue-500"></i> Proyectos</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-all shadow-md">
+          <img src="assets/ansible.png" alt="Agent_monitoring" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Sistema de Monitoreo - Docker/Ansible</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">Sistema de monitoreo de VM y servidores Linux. Mediante Script en Bash, Docker y Ansible para automatizacion.</p>
+            <a href="agent_monotoring.html" class="inline-block text-center w-full py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-blue-400 border border-slate-700 transition-colors">Ver proyecto</a>
+          </div>
+        </div>
 
-  <!-- Contacto -->
-<section id="contacto" class="section dark">
-  <div class="container" style="display:flex; justify-content:center; align-items:center;">
-    <div class="contact-card" style="background:#1a1a1a; padding:2.5rem; border-radius:12px; max-width:600px; width:100%; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
-      <h2 class="section-title"><i class="fas fa-envelope"></i> Contacto</h2>
-      <form id="contact-form" style="display:flex; flex-direction:column; gap:1rem; margin-top:1rem;">
-        <input type="text" name="name" id="name" placeholder="Tu nombre" required>
-        <input type="email" name="email" id="email" placeholder="Tu correo" required>
-        <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
-        <button type="submit" id="send-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
-         <p id="status"></p>
-      </form>
-      <p id="form-msg" style="margin-top:1rem; color:#00ffb3;"></p>
+        <div class="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-all shadow-md">
+          <img src="assets/corteapp.png" alt="Corte Bike Shop" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Gestión Clientes y Reservaciones</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">Aplicación web para registrar clientes y agendar citas de taller. Backend en Python (Flask) con base de datos MySQL/SQLite.</p>
+            <a href="cortebike.html" class="inline-block text-center w-full py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-blue-400 border border-slate-700 transition-colors">Ver proyecto</a>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-all shadow-md">
+          <img src="assets/raspberry.jpg" alt="Docker Nginx" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Servidor Nginx en Docker</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">Despliegue de una aplicación Flask detrás de un servidor NGINX en Raspberry Pi Zero 2 W, utilizando Docker y Portainer.</p>
+            <a href="raspberry.html" class="inline-block text-center w-full py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-blue-400 border border-slate-700 transition-colors">Ver proyecto</a>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-all shadow-md">
+          <img src="assets/3.jpg" alt="Túnel Cloudflare" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Configurando Túnel Cloudflare</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">Exposición selectiva de servicios web alojados en Docker mediante un túnel seguro en Cloudflare en Raspberry Pi Zero 2 W.</p>
+            <a href="cloudflare.html" class="inline-block text-center w-full py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-blue-400 border border-slate-700 transition-colors">Ver proyecto</a>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-all shadow-md">
+          <img src="assets/22.png" alt="Employee & Schedule Manager" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Employee & Schedule Manager</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">Aplicación web para la gestión de empleados y la generación de horarios semanales, con funciones CRUD y administración de datos.</p>
+            <a href="schedule.html" class="inline-block text-center w-full py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-blue-400 border border-slate-700 transition-colors">Ver proyecto</a>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex flex-col group hover:border-slate-700 transition-all shadow-md">
+          <img src="assets/5.png" alt="Generación de Certificados" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Generación de Certificados</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">Aplicación en Python que automatiza la creación y envío por correo de certificados en formato PDF desde un archivo Excel.</p>
+            <a href="#" class="inline-block text-center w-full py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-blue-400 border border-slate-700 transition-colors">Ver proyecto</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+ <section id="experiencia" class="py-24 bg-slate-950">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3"><i class="fas fa-briefcase text-blue-500"></i> Experiencia</h2>
 
-  <footer class="section light">
-    <div class="container">
-      <p>&copy; 2025 josmacpac - Todos los derechos reservados</p>
+      <!-- 🌟 Contenedor de la línea de tiempo unificado (ahora envuelve todo) -->
+      <div class="border-l-2 border-slate-800 space-y-12 ml-4">
+        
+        <!-- TRABAJO ACTUAL: Ingeniero de Administración de la Configuración -->
+        <div class="relative pl-8">
+          <!-- Nodo azul brillante para indicar puesto activo -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950"></div>
+          <div class="flex flex-wrap justify-between items-baseline mb-2">
+            <h3 class="text-xl font-bold text-white">Ingeniero de Administración de la Configuración - Tecnología de Gestión y Comunicación</h3>
+            <span class="text-sm bg-blue-950/40 border border-blue-900/50 px-3 py-1 rounded text-blue-400 font-medium">2026 - Actualidad</span>
+          </div>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li class="flex gap-2">
+              <i class="fas fa-check text-blue-500 mt-1 flex-shrink-0"></i> 
+              <span>Administración, mantenimiento y control de versiones de repositorios de código fuente, asegurando la integridad de los artefactos de software.</span>
+            </li>
+            <li class="flex gap-2">
+              <i class="fas fa-check text-blue-500 mt-1 flex-shrink-0"></i> 
+              <span>Diseño e implementación de pipelines de Integración y Despliegue Continuo (CI/CD) utilizando Jenkins para automatizar compilaciones y pruebas.</span>
+            </li>
+            <li class="flex gap-2">
+              <i class="fas fa-check text-blue-500 mt-1 flex-shrink-0"></i> 
+              <span>Contenedorización de aplicaciones y gestión de entornos consistentes mediante Docker, optimizando el ciclo de vida del desarrollo bajo cultura DevOps.</span>
+            </li>
+          </ul>
+        </div>
+      
+        <!-- EXPERIENCIA: Corte Bike Shop -->
+        <div class="relative pl-8">
+          <!-- Cambiado a gris para denotar que es una experiencia previa -->
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+          <div class="flex flex-wrap justify-between items-baseline mb-2">
+            <h3 class="text-xl font-bold text-white">Desarrollador (Prácticas) - Corte Bike Shop</h3>
+            <span class="text-sm bg-slate-900 border border-slate-800 px-3 py-1 rounded text-slate-400">2025 - 2026</span>
+          </div>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li class="flex gap-2"><i class="fas fa-check text-slate-400 mt-1 flex-shrink-0"></i> Desarrollo de un sistema de reservación de citas para servicios de taller.</li>
+            <li class="flex gap-2"><i class="fas fa-check text-slate-400 mt-1 flex-shrink-0"></i> Implementación de backend en Python (Flask) con base de datos en MySQL.</li>
+            <li class="flex gap-2"><i class="fas fa-check text-slate-400 mt-1 flex-shrink-0"></i> Diseño de rutas seguras para registro, login y gestión de usuarios.</li>
+          </ul>
+        </div>
+
+        <!-- EXPERIENCIA: Alsuper -->
+        <div class="relative pl-8">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+          <div class="flex flex-wrap justify-between items-baseline mb-2">
+            <h3 class="text-xl font-bold text-white">Jefe Departamental - Alsuper</h3>
+            <span class="text-sm bg-slate-900 border border-slate-800 px-3 py-1 rounded text-slate-400">2019 - 2026</span>
+          </div>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li class="flex gap-2"><i class="fas fa-check text-slate-500 mt-1 flex-shrink-0"></i> Gestión de personal para mejorar desempeño y productividad.</li>
+            <li class="flex gap-2"><i class="fas fa-check text-slate-500 mt-1 flex-shrink-0"></i> Supervisión de múltiples puntos de venta y monitoreo de métricas operativas.</li>
+            <li class="flex gap-2"><i class="fas fa-check text-slate-500 mt-1 flex-shrink-0"></i> Administración de pedidos e inventarios estratégicos.</li>
+          </ul>
+        </div>
+
+        <!-- EXPERIENCIA: McDonald's -->
+        <div class="relative pl-8">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+          <div class="flex flex-wrap justify-between items-baseline mb-2">
+            <h3 class="text-xl font-bold text-white">Gerente - McDonald's</h3>
+            <span class="text-sm bg-slate-900 border border-slate-800 px-3 py-1 rounded text-slate-400">2007 - 2018</span>
+          </div>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li class="flex gap-2"><i class="fas fa-check text-slate-500 mt-1 flex-shrink-0"></i> Supervisión comercial completa de restaurantes y puntos de venta externos.</li>
+            <li class="flex gap-2"><i class="fas fa-check text-slate-500 mt-1 flex-shrink-0"></i> Control estricto de indicadores clave de desempeño (KPIs) e inventarios.</li>
+          </ul>
+        </div>
+
+      </div> <!-- Cierre de línea de tiempo -->
     </div>
+  </section>
+
+  <section id="contacto" class="py-24 bg-slate-900/60">
+    <div class="max-w-lg mx-auto px-6">
+      <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-xl">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3"><i class="fas fa-envelope text-blue-500"></i> Contacto</h2>
+        <form id="contact-form" class="flex flex-col gap-4">
+          <input type="text" name="name" id="name" placeholder="Tu nombre" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" required>
+          <input type="email" name="email" id="email" placeholder="Tu correo" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" required>
+          <textarea id="message" name="message" placeholder="Tu mensaje" rows="4" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none" required></textarea>
+          <button type="submit" id="send-btn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition-colors shadow-lg shadow-blue-900/20"><i class="fas fa-paper-plane mr-2"></i> Enviar</button>
+          <p id="status" class="text-sm font-medium mt-2 text-center"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-sm text-slate-500">
+    <p>&copy; 2025 josmacpac - Todos los derechos reservados</p>
   </footer>
-<script src="script.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init({
-      publicKey: "GCkyWrmcIWp4qav86"  // <- copia la que está en tu Dashboard
+
+  <script src="script.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init({ publicKey: "GCkyWrmcIWp4qav86" });
+    })();
+  </script>
+  <script>
+    const form   = document.getElementById('contact-form');
+    const button = document.getElementById('send-btn');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      button.disabled = true;
+      button.textContent = "Enviando...";
+      status.className = "text-sm font-medium mt-2 text-center text-blue-400";
+
+      try {
+        await emailjs.sendForm("service_nqn0so1", "template_d6rtnkc", "#contact-form", "GCkyWrmcIWp4qav86");
+        status.textContent = "Mensaje enviado ✅";
+        status.className = "text-sm font-medium mt-2 text-center text-emerald-400";
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        status.textContent = "Error al enviar ❌";
+        status.className = "text-sm font-medium mt-2 text-center text-red-400";
+      } finally {
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Enviar';
+      }
     });
-  })();
-</script>
-<script>
-  const form   = document.getElementById('contact-form');
-  const button = document.getElementById('send-btn');
-  const status = document.getElementById('status');
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    button.disabled = true;
-    button.textContent = "Enviando...";
-
-    try {
-      await emailjs.sendForm(
-        "service_nqn0so1",   // tu Service ID
-  "template_d6rtnkc",  // tu Template ID
-  "#contact-form",     // el selector de tu form
-  "GCkyWrmcIWp4qav86"  // tu Public Key 
-      );
-
-      status.textContent = "Mensaje enviado ✅";
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      status.textContent = "Error al enviar ❌";
-    } finally {
-      button.disabled = false;
-      button.textContent = "Enviar";
-    }
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
