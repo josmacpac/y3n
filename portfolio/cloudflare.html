@@ -1,101 +1,156 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto: Cloudflare Tunnel</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- 🌟 Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 antialiased pt-20">
 
-  <!-- Hero del proyecto -->
-  <header class="hero" style="min-height: 40vh;">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Cloudflare Tunnel en Raspberry Pi</h1>
-      <p class="role">Exposición segura de servicios Docker</p>
-      <div class="hero-buttons">
-        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+  <!-- 🧭 NAV SUPERIOR FIJA INTEGRADA CON Y3N.STORE -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 shadow-lg px-6 py-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+        Y3N.STORE
+      </a>
+      <a href="index.html" class="text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2">
+        <i class="fas fa-arrow-left"></i> Volver al Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- 🚀 HERO SECTION -->
+  <header class="relative min-h-[45vh] flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-4 text-center border-b border-slate-800/60">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.06)_0,transparent_100%)]"></div>
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-orange-400 bg-orange-950/40 border border-orange-900/50 rounded-full mb-4 uppercase">Networking & SecOps</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide mb-4">Cloudflare Tunnel en Raspberry Pi</h1>
+      <p class="text-base md:text-lg text-slate-400 font-medium tracking-wide mb-6">Exposición segura y cifrada de servicios Docker locales</p>
+      <div class="flex justify-center">
+        <a href="index.html" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-sm font-medium text-white transition-all shadow-md flex items-center gap-2">
+          <i class="fas fa-arrow-left text-xs text-blue-400"></i> Regresar al Portfolio
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Contenido del proyecto -->
-  <section class="section light">
-    <div class="container">
-      <div class="project-content">
+  <!-- 📑 CONTENIDO PRINCIPAL DEL PROYECTO -->
+  <main class="py-16 max-w-4xl mx-auto px-6">
+    <div class="space-y-12">
 
-        <img src="assets/Cloudflare-logo.png" alt="Cloudflare Logo" class="project-img">
+      <!-- Imagen Principal del Proyecto -->
+      <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950/40 p-4 shadow-xl flex justify-center items-center">
+        <img src="assets/Cloudflare-logo.png" alt="Cloudflare Logo" class="max-h-48 object-contain">
+      </div>
 
-
-        <h2>Introducción</h2>
-        <p>
-          Exponer los sitios web alojados en mi servidor local de manera segura usando un túnel de Cloudflare, evitando exponer toda mi red. Los servicios corren en contenedores Docker sobre una Raspberry Pi Zero 2 W. Este proyecto sirve como laboratorio de prácticas de administración de servidores y seguridad.
+      <!-- Sección: Introducción -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md">
+        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2"><i class="fas fa-info-circle text-blue-500 text-xl"></i> Introducción</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Exponer sitios web alojados en un servidor local de manera segura usando un túnel de Cloudflare, evitando exponer la IP pública o abrir puertos en la red interna. Los servicios corren aislados en contenedores Docker sobre un nodo **Raspberry Pi Zero 2 W**. Este proyecto funge como laboratorio de prácticas avanzado para la administración de servidores, redes y endurecimiento de seguridad.
         </p>
+      </article>
 
-        <h2>Requisitos previos</h2>
-        <ul>
-          <li>Raspberry Pi configurada (Raspbian sin entorno gráfico).</li>
-          <li>Docker instalado.</li>
-          <li>Dominio registrado.</li>
-          <li>Cuenta de Cloudflare con dominio añadido.</li>
-          <li>Acceso a terminal (SSH o monitor/teclado).</li>
-          <li>Servicios corriendo en Docker.</li>
-        </ul>
+      <!-- Sección: Requisitos Previos -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2"><i class="fas fa-tasks text-orange-500 text-xl"></i> Requisitos Previos</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="flex gap-3 items-center p-3 bg-slate-900 border border-slate-800 rounded-lg">
+            <i class="fab fa-linux text-slate-400 text-lg"></i>
+            <span class="text-sm text-slate-300">Raspberry Pi (Raspbian CLI)</span>
+          </div>
+          <div class="flex gap-3 items-center p-3 bg-slate-900 border border-slate-800 rounded-lg">
+            <i class="fab fa-docker text-cyan-400 text-lg"></i>
+            <span class="text-sm text-slate-300">Docker Engine instalado</span>
+          </div>
+          <div class="flex gap-3 items-center p-3 bg-slate-900 border border-slate-800 rounded-lg">
+            <i class="fas fa-globe text-purple-400 text-lg"></i>
+            <span class="text-sm text-slate-300">Dominio propio registrado</span>
+          </div>
+          <div class="flex gap-3 items-center p-3 bg-slate-900 border border-slate-800 rounded-lg">
+            <i class="fas fa-cloud text-orange-400 text-lg"></i>
+            <span class="text-sm text-slate-300">Cuenta activa en Cloudflare</span>
+          </div>
+          <div class="flex gap-3 items-center p-3 bg-slate-900 border border-slate-800 rounded-lg">
+            <i class="fas fa-terminal text-emerald-400 text-lg"></i>
+            <span class="text-sm text-slate-300">Acceso seguro vía SSH</span>
+          </div>
+          <div class="flex gap-3 items-center p-3 bg-slate-900 border border-slate-800 rounded-lg">
+            <i class="fas fa-cubes text-blue-400 text-lg"></i>
+            <span class="text-sm text-slate-300">Servicios contenerizados</span>
+          </div>
+        </div>
+      </article>
 
-        <h2>Contenedores activos</h2>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Nombre del contenedor</th>
-              <th>Imagen</th>
-              <th>Puerto interno</th>
-              <th>Puerto host</th>
-              <th>Propósito</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>nginx_server</td>
-              <td>nginx</td>
-              <td>80</td>
-              <td>80</td>
-              <td>Reverse proxy</td>
-            </tr>
-            <tr>
-              <td>josmacpac-site</td>
-              <td>nginx</td>
-              <td>80</td>
-              <td>8080</td>
-              <td>Sitio estático</td>
-            </tr>
-            <tr>
-              <td>flask_app</td>
-              <td>app-flask</td>
-              <td>8000</td>
-              <td>—</td>
-              <td>Aplicación Flask</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Sección: Contenedores Activos (Tabla Estilizada) -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md overflow-hidden">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2"><i class="fas fa-server text-purple-500 text-xl"></i> Contenedores Activos</h2>
+        <div class="overflow-x-auto rounded-lg border border-slate-800">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-slate-300 uppercase text-xs font-semibold tracking-wider border-b border-slate-800">
+                <th class="p-4">Contenedor</th>
+                <th class="p-4">Imagen Base</th>
+                <th class="p-4">Puerto Int.</th>
+                <th class="p-4">Puerto Host</th>
+                <th class="p-4">Propósito</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-850 text-slate-300 font-mono">
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="p-4 text-white font-semibold">nginx_server</td>
+                <td class="p-4 text-cyan-400">nginx</td>
+                <td class="p-4">80</td>
+                <td class="p-4">80</td>
+                <td class="p-4 font-sans text-xs text-slate-400">Reverse proxy</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="p-4 text-white font-semibold">josmacpac-site</td>
+                <td class="p-4 text-cyan-400">nginx</td>
+                <td class="p-4">80</td>
+                <td class="p-4 text-blue-400">8080</td>
+                <td class="p-4 font-sans text-xs text-slate-400">Sitio estático</td>
+              </tr>
+              <tr class="hover:bg-slate-900/40 transition-colors">
+                <td class="p-4 text-white font-semibold">flask_app</td>
+                <td class="p-4 text-cyan-400">app-flask</td>
+                <td class="p-4">8000</td>
+                <td class="p-4 text-slate-600">—</td>
+                <td class="p-4 font-sans text-xs text-slate-400">Aplicación Flask</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
 
-        <h2>Unir contenedores a la misma red</h2>
-        <pre class="code-block"><code>
-sudo docker network connect NOMBRE_RED NOMBRE_CONTENEDOR
-docker network ls
-docker network inspect NOMBRE_RED
-        </code></pre>
+      <!-- Sección: Orquestación de Redes Docker -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-4">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-network-wired text-blue-400 text-xl"></i> Redes de Contenedores</h2>
+        <p class="text-slate-300">Conectamos los microservicios aislados a una misma red interna para habilitar el descubrimiento nativo por nombre de contenedor:</p>
+        
+        <div class="bg-black/40 rounded-lg p-5 border border-slate-800 font-mono text-xs text-emerald-400 space-y-2 shadow-inner">
+          <p><span class="text-slate-500"># Enlazar contenedores a la red compartida</span></p>
+          <p>sudo docker network connect NOMBRE_RED NOMBRE_CONTENEDOR</p>
+          <p><span class="text-slate-500"># Auditar estados de la red</span></p>
+          <p>docker network ls</p>
+          <p>docker network inspect NOMBRE_RED</p>
+        </div>
+      </article>
 
-        <p>Verificamos si todos los contenedores están en la misma red:</p>
-        <pre class="code-block">docker network inspect NOMBRE_RED</pre>
-
-        <h2>Configurar NGINX como reverse proxy</h2>
-        <p>Editamos el archivo de configuración de NGINX montado en la Raspberry y reiniciamos el contenedor.</p>
-        <p>La idea es que el túnel acceda a un único puerto, y NGINX actúe como reverse proxy hacia cada servicio.</p>
-        <pre class="code-block"><code>
-server {
+      <!-- Sección: NGINX Config -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-4">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-code text-cyan-400 text-xl"></i> Configuración de NGINX (Reverse Proxy)</h2>
+        <p class="text-slate-300">Optimizamos el archivo de configuración para centralizar las peticiones entrantes desde el túnel hacia un puerto único, delegando el enrutamiento según el subdominio:</p>
+        
+        <div class="bg-black/40 rounded-lg p-5 border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto shadow-inner">
+<pre><code>server {
     listen 80;
     server_name app.dominio.com;
     location / {
@@ -113,42 +168,60 @@ server {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
-}
-        </code></pre>
-
-        <h2>Instalar cloudflared en Raspberry Pi</h2>
-        <p>Cloudflared permite crear un túnel seguro entre la Raspberry Pi y Cloudflare, sin abrir puertos en el firewall.</p>
-        <pre class="code-block"><code>
-sudo apt update
-sudo apt upgrade
-curl -L https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-archive-keyring.gpg >/dev/null
-
-echo "deb [signed-by=/usr/share/keyrings/cloudflare-archive-keyring.gpg] https://pkg.cloudflare.com/cloudflared $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflared.list
-
-sudo apt update
-sudo apt install cloudflared
-        </code></pre>
-
-        <h2>Autenticación y creación del túnel</h2>
-        <pre class="code-block"><code>
-cloudflared tunnel login
-cloudflared tunnel create NOMBRE_TUNEL
-cloudflared tunnel route dns NOMBRE_TUNEL subdominio.dominio.com
-        </code></pre>
-        <p>Después de configurar el subdominio, se puede acceder desde el navegador: <code>http://subdominio.dominio.com</code></p>
-
-        <h2>Conclusión</h2>
-        <p>
-          Este método permite exponer solo los servicios necesarios desde la red local sin abrir puertos directamente. Es ideal para prácticas de administración de servidores y despliegue seguro con Raspberry Pi.
-        </p>
-
-        <div class="hero-buttons mt-4">
-          <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+}</code></pre>
         </div>
+      </article>
 
+      <!-- Sección: Instalación de Cloudflared -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-4">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-download text-amber-500 text-xl"></i> Instalación de cloudflared</h2>
+        <p class="text-slate-300">Agregamos los repositorios oficiales e instalamos el agente ligero de Cloudflare en el entorno CLI de la Raspberry Pi:</p>
+        
+        <div class="bg-black/40 rounded-lg p-5 border border-slate-800 font-mono text-xs text-emerald-400 space-y-2 shadow-inner overflow-x-auto">
+          <p>sudo apt update && sudo apt upgrade -y</p>
+          <p>curl -L https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-archive-keyring.gpg >/dev/null</p>
+          <p>echo "deb [signed-by=/usr/share/keyrings/cloudflare-archive-keyring.gpg] https://pkg.cloudflare.com/cloudflared $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflared.list</p>
+          <p>sudo apt update && sudo apt install cloudflared -y</p>
+        </div>
+      </article>
+
+      <!-- Sección: Autenticación -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-4">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-key text-red-400 text-xl"></i> Autenticación y Despliegue del Túnel</h2>
+        <p class="text-slate-300">Inicializamos la sesión y enrutamos el tráfico TLS de manera transparente hacia el subdominio web apuntado:</p>
+        
+        <div class="bg-black/40 rounded-lg p-5 border border-slate-800 font-mono text-xs text-emerald-400 space-y-2 shadow-inner">
+          <p>cloudflared tunnel login</p>
+          <p>cloudflared tunnel create NOMBRE_TUNEL</p>
+          <p>cloudflared tunnel route dns NOMBRE_TUNEL subdominio.dominio.com</p>
+        </div>
+        <p class="text-xs text-slate-400 bg-slate-900 p-3 rounded border border-slate-800">
+          <i class="fas fa-info-circle text-blue-400 mr-1"></i> Una vez propagado el registro DNS, los servicios locales quedan expuestos bajo HTTPS seguro mediante el endpoint público de Cloudflare.
+        </p>
+      </article>
+
+      <!-- Conclusión -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md border-l-4 border-l-blue-500">
+        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-400 text-xl"></i> Conclusión</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Esta arquitectura SecOps mitiga drásticamente la superficie de ataque al no requerir redireccionamiento de puertos (*Port Forwarding*) en el módem router doméstico. Es un entorno robusto, idóneo para alojar servicios personales y entornos de desarrollo de bajo coste con total aislamiento y seguridad perimetral.
+        </p>
+      </article>
+
+      <!-- Botón de retorno al pie de página -->
+      <div class="flex justify-center pt-4">
+        <a href="index.html" class="px-6 py-3 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg font-medium text-slate-300 transition-colors flex items-center gap-2 shadow-lg">
+          <i class="fas fa-arrow-left text-xs text-blue-400"></i> Regresar al Portfolio
+        </a>
       </div>
+
     </div>
-  </section>
+  </main>
+
+  <!-- 🧎 FOOTER -->
+  <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-sm text-slate-500 mt-16">
+    <p>&copy; 2026 josmacpac - Todos los derechos reservados</p>
+  </footer>
 
 </body>
 </html>

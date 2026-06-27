@@ -1,80 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto: Employee Schedule Manager</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <style> body { font-family: 'Montserrat', sans-serif; } </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 antialiased pt-20">
 
-  <!-- Hero del proyecto -->
-  <header class="hero" style="min-height: 40vh;">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Employee & Schedule Manager</h1>
-      <div class="hero-buttons">
-          <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portafolio</a>
-      </div>
+  <nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 shadow-lg px-6 py-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+        Y3N.STORE
+      </a>
+      <a href="index.html" class="text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2">
+        <i class="fas fa-arrow-left"></i> Regresar al Portafolio
+      </a>
+    </div>
+  </nav>
+
+  <header class="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-4 text-center border-b border-slate-800/60">
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Employee & Schedule Manager</h1>
+      <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-sm font-medium transition-all">
+        <i class="fas fa-arrow-left"></i> Regresar al Portafolio
+      </a>
     </div>
   </header>
 
-  <!-- Contenido del proyecto -->
-  <section class="section light">
-    <div class="container">
-      <div class="project-content">
+  <main class="py-16 max-w-4xl mx-auto px-6">
+    <div class="project-content space-y-8 text-slate-300">
 
-        <img src="assets/33.png" alt="schedule" class="project-img">
-        
-        <p class="role">
-          Este proyecto es una aplicación web diseñada para la gestión de empleados y la generación de horarios semanales. 
-          Permite a los administradores gestionar empleados mediante un sistema CRUD (Crear, Leer, Actualizar, Eliminar) 
-          y generar dinámicamente horarios para una semana seleccionada.
-        </p>
+      <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950/40 p-2 shadow-xl">
+        <img src="assets/33.png" alt="schedule" class="w-full rounded-lg">
+      </div>
+      
+      <p class="text-lg leading-relaxed text-slate-200">
+        Este proyecto es una aplicación web diseñada para la gestión de empleados y la generación de horarios semanales. 
+        Permite a los administradores gestionar empleados mediante un sistema CRUD (Crear, Leer, Actualizar, Eliminar) 
+        y generar dinámicamente horarios para una semana seleccionada.
+      </p>
 
-        <h4>Tecnologías Utilizadas:</h4>
-        <ul>
-          <li><strong>Backend:</strong> Python con Flask</li>
-          <li><strong>Frontend:</strong> HTML con plantillas de Bootstrap</li>
-          <li><strong>Base de Datos:</strong> MySQL</li>
-          <li><strong>Manejo y Visualización de Datos:</strong> Pandas y DataTables</li>
-        </ul>
-        
-        <h4>Características Principales:</h4>
-        <ul>
-          <li><strong>Gestión de Empleados:</strong> Agregar, editar y eliminar empleados en la base de datos.</li>
-          <li><strong>Generación de Horarios:</strong> Crear y mostrar horarios semanales de turnos de manera dinámica.</li>
-          <li><strong>Análisis y Visualización de Datos:</strong> Uso de Pandas para procesar y presentar la información generada.</li>
-          <li><strong>Interfaz Amigable:</strong> Diseño responsivo con Bootstrap para una mejor experiencia de usuario.</li>
-        </ul>
-        
-        <p>
-          Este proyecto demuestra mi experiencia en desarrollo backend con Flask, manipulación de datos con Pandas 
-          y gestión de bases de datos, combinando funcionalidad y diseño para optimizar la administración de empleados.
-        </p>
-
-        <!-- Botones principales del proyecto -->
-        <div class="project-buttons" style="margin-top: 20px;">
-          <a class="btn btn-primary" href="https://github.com/josmacpac/AppSchedule.git" role="button">
-            Code <i class="fa fa-code" aria-hidden="true"></i>
-          </a>
-          <a class="btn btn-primary" href="https://josmacpac.pythonanywhere.com/" role="button">
-            Visit the App <i class="fa fa-laptop" aria-hidden="true"></i>
-          </a>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
+          <h4 class="text-xl font-bold text-white mb-4 border-l-4 border-blue-500 pl-3">Tecnologías Utilizadas:</h4>
+          <ul class="space-y-2 text-sm">
+            <li><strong>Backend:</strong> Python con Flask</li>
+            <li><strong>Frontend:</strong> HTML con plantillas de Bootstrap</li>
+            <li><strong>Base de Datos:</strong> MySQL</li>
+            <li><strong>Manejo y Visualización de Datos:</strong> Pandas y DataTables</li>
+          </ul>
         </div>
 
+        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
+          <h4 class="text-xl font-bold text-white mb-4 border-l-4 border-emerald-500 pl-3">Características Principales:</h4>
+          <ul class="space-y-2 text-sm list-disc pl-4">
+            <li><strong>Gestión de Citas:</strong> Agregar, editar y eliminar empleados en la base de datos.</li>
+            <li><strong>Generación de Horarios:</strong> Crear y mostrar horarios semanales de turnos de manera dinámica.</li>
+            <li><strong>Análisis y Visualización de Datos:</strong> Uso de Pandas para procesar y presentar la información generada.</li>
+            <li><strong>Interfaz Amigable:</strong> Diseño responsivo con Bootstrap para una mejor experiencia de usuario.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p class="leading-relaxed">
+        Este proyecto demuestra mi experiencia en desarrollo backend con Flask, manipulación de datos con Pandas 
+        y gestión de bases de datos, combinando funcionalidad y diseño para optimizar la administración de empleados.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center pt-8">
+        <a class="px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg font-medium transition-all flex items-center gap-2" href="https://github.com/josmacpac/AppSchedule.git" role="button">
+          Code <i class="fa fa-code" aria-hidden="true"></i>
+        </a>
+        <a class="px-6 py-3 bg-blue-600 hover:bg-blue-500 border border-blue-700 rounded-lg font-medium transition-all flex items-center gap-2" href="https://josmacpac.pythonanywhere.com/" role="button">
+          Visit the App <i class="fa fa-laptop" aria-hidden="true"></i>
+        </a>
       </div>
 
-      <!-- Botón de regreso -->
-      <div class="hero-buttons mt-4" style="margin-top: 40px;">
-        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portafolio</a>
+      <div class="pt-8 text-center">
+        <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg text-sm font-medium transition-all">
+          <i class="fas fa-arrow-left"></i> Regresar al Portafolio
+        </a>
       </div>
 
     </div>
-  </section>
+  </main>
+
+  <footer class="py-8 text-center text-slate-600 text-sm border-t border-slate-800">
+    &copy; 2026 josmacpac - Y3N.STORE
+  </footer>
 
 </body>
 </html>
-

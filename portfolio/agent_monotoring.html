@@ -1,86 +1,186 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto: Sistema de Monitoreo Escalable</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- 🌟 Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 antialiased pt-20">
 
-  <header class="hero" style="min-height: 40vh;">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Sistema de Monitoreo y Observabilidad</h1>
-      <p class="role">DevOps | Bash | Docker | Ansible | Flask</p>
-      <div class="hero-buttons">
-        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+  <!-- 🧭 NAV SUPERIOR FIJA INTEGRADA CON Y3N.STORE -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 shadow-lg px-6 py-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+        Y3N.STORE
+      </a>
+      <a href="index.html" class="text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2">
+        <i class="fas fa-arrow-left"></i> Volver al Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- 🚀 HERO SECTION (Compacto para detalle de proyecto) -->
+  <header class="relative min-h-[45vh] flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-4 text-center border-b border-slate-800/60">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.06)_0,transparent_100%)]"></div>
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-cyan-400 bg-cyan-950/40 border border-cyan-900/50 rounded-full mb-4 uppercase">Ecosistema DevOps & Cloud</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-wide mb-4">Sistema de Monitoreo y Observabilidad</h1>
+      <p class="text-base md:text-lg text-slate-400 font-medium tracking-wide mb-6">Infraestructura Automatizada con Bash, Docker, Ansible y Oracle Cloud</p>
+      <div class="flex justify-center">
+        <a href="index.html" class="px-5 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-sm font-medium text-white transition-all shadow-md flex items-center gap-2">
+          <i class="fas fa-arrow-left text-xs text-blue-400"></i> Regresar al Portfolio
+        </a>
       </div>
     </div>
   </header>
 
-  <section class="section light">
-    <div class="container">
-      <div class="project-content">
+  <!-- 📑 CONTENIDO PRINCIPAL DEL PROYECTO -->
+  <main class="py-16 max-w-4xl mx-auto px-6">
+    <div class="space-y-12">
 
-        <img src="assets/desktop.png" alt="Dashboard de Monitoreo DevOps" class="project-img">
+      <!-- Imagen Principal con borde estilizado -->
+      <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950/40 p-2 shadow-xl">
+        <img src="assets/desktop.png" alt="Dashboard de Monitoreo DevOps" class="w-full rounded-lg object-cover">
+      </div>
 
-        <h2>Introducción</h2>
-        <p>En este proyecto desarrollé una solución integral de monitoreo para servidores y máquinas virtuales. El sistema extrae métricas de salud en tiempo real de múltiples nodos y las centraliza en un dashboard interactivo, eliminando la necesidad de supervisión manual individual.</p>
+      <!-- Sección: Introducción -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md">
+        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2"><i class="fas fa-info-circle text-blue-500 text-xl"></i> Introducción</h2>
+        <p class="text-slate-300 leading-relaxed">
+          En este proyecto desarrollé una solución integral de monitoreo para servidores y máquinas virtuales. El sistema extrae métricas de salud en tiempo real de múltiples nodos y las centraliza en un dashboard interactivo, eliminando la necesidad de supervisión manual individual.
+        </p>
+      </article>
 
-        <h2>El Problema</h2>
-        <p>Monitorear el estado de salud (CPU, RAM, Disco) de múltiples servidores de forma manual es ineficiente y propenso a errores. El objetivo fue crear una arquitectura que permitiera observar toda la infraestructura desde un solo punto, garantizando escalabilidad y portabilidad.</p>
+      <!-- Sección: El Problema -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md">
+        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2"><i class="fas fa-exclamation-triangle text-amber-500 text-xl"></i> El Problema</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Monitorear el estado de salud (CPU, RAM, Disco) de múltiples servidores de forma manual es ineficiente y propenso a errores. El objetivo fue crear una arquitectura que permitiera observar toda la infraestructura desde un solo punto, garantizando escalabilidad, portabilidad y bajo impacto en el rendimiento de los nodos esclavos.
+        </p>
+      </article>
 
-        <h2>Arquitectura del Proyecto</h2>
-        <p>La solución se divide en cuatro capas principales:</p>
-        <ul>
-          <li><strong>Agente de Extracción:</strong> Script en Bash que recolecta métricas y las envía vía JSON.</li>
-          <li><strong>Backend API:</strong> Desarrollado en Python con Flask para procesar y validar los datos.</li>
-          <li><strong>Persistencia:</strong> Base de datos PostgreSQL para el almacenamiento histórico.</li>
-          <li><strong>Frontend:</strong> Dashboard dinámico con Cards que muestran el estado de cada nodo.</li>
-          <li><strong>Tecnologías utilizadas:</strong> Python, Flask, PostgreSQL, Docker, Docker Compose, Ansible, Bash Scripting, Oracle Cloud.</li>
-        </ul>
-
-        <h2>Infraestructura en la Nube (Oracle Cloud)</h2>
-        <img src="assets/instancia_oracle.png" alt="instancia_oracle" class="project-img">
-
-        <p>A diferencia de un entorno local, este sistema fue desplegado sobre una instancia de <strong>Oracle Cloud Infrastructure (OCI)</strong>. Esto implicó la gestión de:</p>
-        <ul>
-          <li><strong>Virtual Cloud Network (VCN):</strong> Configuración de reglas de entrada (Ingress Rules) para permitir el tráfico de las métricas de forma segura.</li>
-          <li><strong>Seguridad (Hardening):</strong> Implementación de acceso vía llaves SSH de 4096 bits y cambio de puertos estándar para mitigar intentos de intrusión.</li>
-          <li><strong>Disponibilidad:</strong> El servidor central opera 24/7 en la nube, permitiendo que nodos de cualquier parte del mundo reporten su estado.</li>
-        </ul>
-
-        <h2>Automatización con Ansible (IaC)</h2>
-        <p>Para el despliegue de los agentes en los nodos (VMs), utilicé <strong>Ansible</strong>. Esto permite configurar el entorno, transferir el script y establecerlo como un servicio persistente en <strong>Systemd</strong> con un solo comando.</p>
+      <!-- Sección: Arquitectura del Proyecto -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2"><i class="fas fa-sitemap text-purple-500 text-xl"></i> Arquitectura del Proyecto</h2>
+        <p class="text-slate-300 mb-6">La solución está modularizada y estructurada en cuatro capas principales:</p>
         
-        <img src="assets/ansible_running.png" alt="ansible_running" class="project-img">
-
-        <h2>Contenerización con Docker Compose</h2>
-        <p>Para facilitar el despliegue del servidor central en Oracle Cloud, utilicé Docker para encapsular la API y la base de datos, garantizando que el entorno sea idéntico en desarrollo y producción.</p>
-
-        <img src="assets/docker_yml.png" alt="docker_yml" class="project-img">
-
-        <h2>El Agente de Monitoreo (Bash)</h2>
-        <p>El script principal utiliza herramientas de sistema para calcular el uso de recursos y enviar un POST request a la API centralizada cada 10 segundos.</p>
-        
- <img src="assets/systemctl.png" alt="systemctl" class="project-img">
-
-        <h2>Conclusión y Próximos Pasos</h2>
-        <p>Este proyecto demuestra la potencia de combinar herramientas de automatización como Ansible con la portabilidad de Docker. Se logró reducir el tiempo de configuración de nuevos nodos de minutos a segundos.</p>
-        <p><strong>Siguiente paso:</strong> Implementar un pipeline de CI/CD para automatizar las actualizaciones del dashboard .</p>
-        <br>
-        <br>
-
-        <div class="hero-buttons mt-4">
-          <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Regresar al Portfolio</a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+            <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2"><i class="fas fa-terminal text-cyan-400 text-xs"></i> Agente de Extracción</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">Script optimizado en Bash que recolecta métricas vivas del sistema nativo y las empaqueta en JSON.</p>
+          </div>
+          <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+            <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2"><i class="fab fa-python text-blue-400 text-xs"></i> Backend API</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">API REST construida en Python con Flask para procesar, validar e inyectar de forma segura los flujos de datos.</p>
+          </div>
+          <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+            <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2"><i class="fas fa-database text-emerald-400 text-xs"></i> Persistencia</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">Base de datos relacional PostgreSQL encargada del almacenamiento estructurado e histórico de las métricas.</p>
+          </div>
+          <div class="p-4 bg-slate-900 rounded-lg border border-slate-800">
+            <h4 class="text-white font-bold text-sm mb-1 flex items-center gap-2"><i class="fas fa-desktop text-purple-400 text-xs"></i> Frontend</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">Dashboard reactivo con tarjetas dinámicas que exponen visualmente y en tiempo real el estado de cada nodo.</p>
+          </div>
         </div>
 
+        <!-- Tecnologías Utilizadas (Estilo Badges de Código) -->
+        <h3 class="text-xs uppercase font-semibold text-slate-400 tracking-wider mb-3">Tecnologías Utilizadas</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-yellow-400">Python</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-slate-100">Flask</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-blue-400">PostgreSQL</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-cyan-400">Docker</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-cyan-500">Docker Compose</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-red-400">Ansible</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-emerald-400">Bash Scripting</span>
+          <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-xs font-mono text-orange-400">Oracle Cloud (OCI)</span>
+        </div>
+      </article>
+
+      <!-- Sección: Infraestructura en la Nube -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-6">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-cloud text-orange-500 text-xl"></i> Infraestructura en la Nube (Oracle Cloud)</h2>
+        
+        <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900 p-1.5">
+          <img src="assets/instancia_oracle.png" alt="instancia_oracle" class="w-full rounded object-cover">
+        </div>
+
+        <p class="text-slate-300 leading-relaxed">
+          A diferencia de un entorno local tradicional, todo el core central del sistema fue desplegado sobre una arquitectura Cloud en una instancia de **Oracle Cloud Infrastructure (OCI)**. Esto implicó la gestión avanzada de seguridad y redes:
+        </p>
+        
+        <ul class="space-y-3 text-slate-300 text-sm">
+          <li class="flex items-start gap-2.5"><i class="fas fa-shield-alt text-orange-400 mt-1 flex-shrink-0"></i> <span><strong>Virtual Cloud Network (VCN):</strong> Orquestación de listas de seguridad y reglas de entrada (Ingress Rules) granulares para restringir y permitir el tráfico de métricas bajo protocolos específicos.</span></li>
+          <li class="flex items-start gap-2.5"><i class="fas fa-lock text-orange-400 mt-1 flex-shrink-0"></i> <span><strong>Seguridad de Sistema (Hardening):</strong> Cierre de accesos vulnerables, implementación de autenticación estricta vía llaves criptográficas SSH RSA de 4096 bits y ofuscación de puertos por defecto.</span></li>
+          <li class="flex items-start gap-2.5"><i class="fas fa-check-circle text-orange-400 mt-1 flex-shrink-0"></i> <span><strong>Disponibilidad Continua:</strong> Operatividad 24/7 en la nube, garantizando que agentes distribuidos en cualquier parte del mundo reporten sus payloads sin latencia.</span></li>
+        </ul>
+      </article>
+
+      <!-- Sección: Automatización con Ansible -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-6">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-cogs text-red-500 text-xl"></i> Automatización con Ansible (IaC)</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Para mitigar el error humano y acelerar los despliegues masivos en nuevos nodos o VMs, utilicé **Ansible**. Diseñé Playbooks automatizados que preparan el entorno de la máquina remota, inyectan el script del agente y configuran un servicio de ejecución en segundo plano administrado de forma nativa por **Systemd**.
+        </p>
+        <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900 p-1.5">
+          <img src="assets/ansible_running.png" alt="ansible_running" class="w-full rounded object-cover">
+        </div>
+      </article>
+
+      <!-- Sección: Contenerización -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-6">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fab fa-docker text-cyan-400 text-xl"></i> Contenerización con Docker Compose</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Con la finalidad de garantizar la portabilidad absoluta del servidor central en Oracle Cloud, encapsulé los entornos independientes de la API de Flask y la persistencia de datos. Utilizar **Docker Compose** asegura un entorno inmutable e idéntico tanto en la fase de laboratorio local como en producción.
+        </p>
+        <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900 p-1.5">
+          <img src="assets/docker_yml.png" alt="docker_yml" class="w-full rounded object-cover">
+        </div>
+      </article>
+
+      <!-- Sección: El Agente (Bash) -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md space-y-6">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2"><i class="fas fa-terminal text-emerald-400 text-xl"></i> El Agente de Monitoreo (Bash)</h2>
+        <p class="text-slate-300 leading-relaxed">
+          El script principal aprovecha comandos de bajo nivel del kernel de Linux para computar con precisión milimétrica la carga de recursos de hardware y realiza una petición HTTP POST segura hacia la API central de forma automatizada cada 10 segundos.
+        </p>
+        <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-900 p-1.5">
+          <img src="assets/systemctl.png" alt="systemctl" class="w-full rounded object-cover">
+        </div>
+      </article>
+
+      <!-- Conclusión -->
+      <article class="bg-slate-950 p-8 rounded-xl border border-slate-800/80 shadow-md border-l-4 border-l-blue-500">
+        <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-400 text-xl"></i> Conclusión y Próximos Pasos</h2>
+        <p class="text-slate-300 leading-relaxed mb-4">
+          Este proyecto demuestra la potencia técnica de combinar la Infraestructura como Código (IaC) con la portabilidad de los microservicios en contenedores. Se logró reducir de manera sustancial los tiempos de configuración y aprovisionamiento de nuevos nodos.
+        </p>
+        <p class="text-slate-300 leading-relaxed">
+          <strong class="text-cyan-400">Siguiente paso estratégico:</strong> Implementar un pipeline de CI/CD automatizado mediante Jenkins para agilizar el ciclo de despliegue de las actualizaciones del núcleo del dashboard.
+        </p>
+      </article>
+
+      <!-- Botón de retorno al pie de página -->
+      <div class="flex justify-center pt-4">
+        <a href="index.html" class="px-6 py-3 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg font-medium text-slate-300 transition-colors flex items-center gap-2 shadow-lg">
+          <i class="fas fa-arrow-left text-xs text-blue-400"></i> Regresar al Portfolio
+        </a>
       </div>
+
     </div>
-  </section>
+  </main>
+
+  <!-- 🧎 FOOTER -->
+  <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-sm text-slate-500 mt-16">
+    <p>&copy; 2025 josmacpac - Todos los derechos reservados</p>
+  </footer>
 
 </body>
 </html>
